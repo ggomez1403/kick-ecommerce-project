@@ -5,8 +5,7 @@
 }
 
 .hero-img {
-  background: url("./../../../../../assets/img/hero-img.jpg") no-repeat
-    center/cover;
+  background: url("https://i.imgur.com/nXsEY2Z.png") no-repeat center/cover;
   width: 94%;
   height: 43vw;
   border-radius: 1rem;
