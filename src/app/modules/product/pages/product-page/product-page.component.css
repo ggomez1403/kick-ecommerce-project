@@ -1,0 +1,7 @@
+.product-page-container {
+  background-color: #e7e7e3;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 2rem 3.5rem;
+  justify-content: center;
+}

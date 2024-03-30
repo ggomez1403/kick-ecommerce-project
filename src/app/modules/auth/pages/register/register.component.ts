@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   public registerForm!: FormGroup;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.registerForm = this.initForm();
   }
 

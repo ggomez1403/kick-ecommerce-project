@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   public loginForm!: FormGroup;
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.loginForm = this.initForm();
   }
 
