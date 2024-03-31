@@ -4,10 +4,11 @@
   gap: 2rem;
   margin: 3.5rem;
 }
+
 .title {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
 }
 
 h2 {

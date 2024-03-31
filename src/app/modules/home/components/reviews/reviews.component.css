@@ -20,7 +20,7 @@ h2 {
 
 .info-container {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   background-color: #fff;
   padding: 1rem;
   gap: 1.5rem;
