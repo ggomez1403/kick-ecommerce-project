@@ -23,6 +23,16 @@ const routes: Routes = [
       import('./modules/cart/cart.module').then((m) => m.CartModule),
   },
   {
+    path: 'about-us',
+    loadChildren: () =>
+      import('./modules/about-us/about-us.module').then((m) => m.AboutUsModule),
+  },
+  {
+    path: 'contact',
+    loadChildren: () =>
+      import('./modules/contact/contact.module').then((m) => m.ContactModule),
+  },
+  {
     path: '**',
     redirectTo: '/',
   },

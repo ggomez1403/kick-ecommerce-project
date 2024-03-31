@@ -7,6 +7,10 @@
   padding: 3rem 3rem 4rem;
 }
 
+.banner {
+  width: 92vw;
+}
+
 .products-list {
   display: grid;
   grid-template-columns: repeat(3, 400px);
