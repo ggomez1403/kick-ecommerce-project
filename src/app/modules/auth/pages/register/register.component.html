@@ -3,7 +3,7 @@
   <article class="register">
     <h1>Register</h1>
     <form [formGroup]="registerForm">
-      <p>Your name</p>
+      <p>Your details</p>
       <input type="text" placeholder="First Name" formControlName="firstName" />
 
       <div
@@ -36,6 +36,27 @@
       >
         Last Name must be longer than
         {{ lastName?.errors?.['minlength']?.requiredLength }} characters
+      </div>
+
+      <input
+        type="text"
+        placeholder="Phone Number"
+        formControlName="phoneNumber"
+        (input)="onPhoneNumberInput($event)"
+      />
+
+      <div
+        *ngIf="phoneNumber?.touched && phoneNumber?.errors?.['required']"
+        class="danger"
+      >
+        Phone number is required
+      </div>
+
+      <div
+        *ngIf="phoneNumber?.touched && phoneNumber?.errors?.['invalidPhoneNumber']"
+        class="danger"
+      >
+        Phone number must have exactly 10 numbers
       </div>
 
       <p>Login Details</p>

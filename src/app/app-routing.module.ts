@@ -18,6 +18,11 @@ const routes: Routes = [
       import('./modules/product/product.module').then((m) => m.ProductModule),
   },
   {
+    path: 'cart',
+    loadChildren: () =>
+      import('./modules/cart/cart.module').then((m) => m.CartModule),
+  },
+  {
     path: '**',
     redirectTo: '/',
   },

@@ -1,0 +1,77 @@
+<section class="container">
+  <h1>Cart</h1>
+  <div class="cart-container">
+    <article class="cart">
+      <section class="product">
+        <img src="https://i.imgur.com/lAAlKkD.png" alt="name" />
+        <div class="product-info">
+          <h3>DROPSET TRAINER SHOES</h3>
+          <p><span>Color: </span>White</p>
+          <p><span>Size: </span>38</p>
+          <p class="delete">Delete</p>
+        </div>
+        <form class="product-quantity">
+          <button type="button" class="btn">-</button>
+          <input type="number" [defaultValue]="1" />
+          <button type="button" class="btn">+</button>
+        </form>
+        <p class="price">$130.00</p>
+      </section>
+      <section class="product">
+        <img src="https://i.imgur.com/lAAlKkD.png" alt="name" />
+        <div class="product-info">
+          <h3>DROPSET TRAINER SHOES</h3>
+          <p><span>Color: </span>White</p>
+          <p><span>Size: </span>38</p>
+          <p class="delete">Delete</p>
+        </div>
+        <form class="product-quantity">
+          <button type="button" class="btn">-</button>
+          <input type="number" [defaultValue]="1" />
+          <button type="button" class="btn">+</button>
+        </form>
+        <p class="price">$130.00</p>
+      </section>
+      <section class="product">
+        <img src="https://i.imgur.com/lAAlKkD.png" alt="name" />
+        <div class="product-info">
+          <h3>DROPSET TRAINER SHOES</h3>
+          <p><span>Color: </span>White</p>
+          <p><span>Size: </span>38</p>
+          <p class="delete">Delete</p>
+        </div>
+        <form class="product-quantity">
+          <button type="button" class="btn">-</button>
+          <input type="number" [defaultValue]="1" />
+          <button type="button" class="btn">+</button>
+        </form>
+        <p class="price">$130.00</p>
+      </section>
+    </article>
+    <article class="summary-container">
+      <h2><i class="fa-solid fa-bag-shopping"></i>Order Summary</h2>
+      <section class="summary">
+        <div class="row">
+          <p>Order</p>
+          <p>$130.00</p>
+        </div>
+        <div class="row">
+          <p>Delivery</p>
+          <p>$6.99</p>
+        </div>
+        <div class="row">
+          <p>Sales Tax</p>
+          <p>0</p>
+        </div>
+        <div class="divider"></div>
+        <div class="row bold">
+          <p>Total</p>
+          <p>$136.99</p>
+        </div>
+        <button type="button" class="btn" routerLink="/cart/checkout">
+          Checkout
+        </button>
+      </section>
+    </article>
+  </div>
+</section>
