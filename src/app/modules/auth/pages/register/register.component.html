@@ -2,7 +2,7 @@
   <img src="https://i.imgur.com/gHiu6KQ.png" alt="register img" />
   <article class="register">
     <h1>Register</h1>
-    <form [formGroup]="registerForm">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <p>Your details</p>
       <input type="text" placeholder="First Name" formControlName="firstName" />
 
@@ -89,6 +89,10 @@
       >
         Password must be longer than
         {{ password?.errors?.['minlength']?.requiredLength }} characters
+      </div>
+
+      <div *ngIf="errorSession" class="danger">
+        The email is already registered
       </div>
 
       <button class="btn" [disabled]="!registerForm.valid">

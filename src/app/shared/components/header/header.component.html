@@ -10,7 +10,16 @@
     <div class="icons">
       <i class="fa-solid fa-cart-shopping"></i>
       <i class="fa-solid fa-user"></i>
-      <button class="btn" routerLink="auth/login">Login</button>
+      <button
+        *ngIf="!isAuthenticated()"
+        class="btn login"
+        routerLink="auth/login"
+      >
+        Login
+      </button>
+      <button *ngIf="isAuthenticated()" class="btn logout" (click)="logout()">
+        Logout
+      </button>
     </div>
   </nav>
 </header>
