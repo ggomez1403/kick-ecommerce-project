@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -6,20 +6,57 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { User } from '../../../../core/models/User.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
-  constructor(private readonly fb: FormBuilder) {}
+export class RegisterComponent implements OnInit, OnDestroy {
+  constructor(
+    private readonly fb: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   public registerForm!: FormGroup;
+  public errorSession!: boolean;
+
+  private subscription!: Subscription;
+  private userRole: string = 'USER';
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.registerForm = this.initForm();
+
+    this.subscription = this.authService.errorLogin$.subscribe((error) => {
+      this.errorSession = error;
+    });
+  }
+
+  onSubmit(): void {
+    const { firstName, lastName, phoneNumber, email, password } =
+      this.registerForm.value;
+
+    const user: User = {
+      firstName,
+      lastName,
+      phoneNumber,
+      email,
+      password,
+      role: this.userRole,
+    };
+
+    this.subscription = this.authService.registerUser(user).subscribe(
+      () => {
+        console.log('Register completed');
+      },
+      (error) => {
+        console.log('Failed to register', error);
+      }
+    );
   }
 
   initForm(): FormGroup {
@@ -73,5 +110,12 @@ export class RegisterComponent implements OnInit {
     if (!pattern.test(input)) {
       event.target.value = input.replace(/[^0-9]/g, '');
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+    this.authService.resetErrorSession();
   }
 }

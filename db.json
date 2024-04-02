@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "be47",
+      "firstName": "Geraldine",
+      "lastName": "Gomez",
+      "phoneNumber": "3193108099",
+      "email": "geralgomez1403@gmail.com",
+      "password": "U2FsdGVkX18aAAtlOjTEuamnU7umLc2VInTdF0nIR1s=",
+      "role": "ADMIN"
+    },
+    {
+      "id": "3ffe",
+      "firstName": "John",
+      "lastName": "Doe",
+      "phoneNumber": "1234567890",
+      "email": "test@gmail.com",
+      "password": "U2FsdGVkX19qEqSv/aRxfAfqyD9HjMF6tZeYNB5z7Ow=",
+      "role": "USER"
+    }
+  ]
+}
