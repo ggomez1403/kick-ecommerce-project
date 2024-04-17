@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Shoes } from '../../../../core/models/Shoes.model';
-import { ProductService } from '../../../product/services/product.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
-  selector: 'app-new-drops',
-  templateUrl: './new-drops.component.html',
-  styleUrls: ['./new-drops.component.css'],
+  selector: 'app-new-drops-page',
+  templateUrl: './new-drops-page.component.html',
+  styleUrls: ['./new-drops-page.component.css'],
 })
-export class NewDropsComponent implements OnInit, OnDestroy {
+export class NewDropsPageComponent implements OnInit, OnDestroy {
   constructor(private productService: ProductService) {}
 
   private subscription!: Subscription;
@@ -21,7 +21,7 @@ export class NewDropsComponent implements OnInit, OnDestroy {
 
   getNewDrops() {
     this.subscription = this.productService
-      .getNewReleasesLimit(4)
+      .getNewReleases()
       .subscribe((response) => {
         this.shoes = response;
       });

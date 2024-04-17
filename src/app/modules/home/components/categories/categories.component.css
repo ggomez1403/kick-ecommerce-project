@@ -17,6 +17,7 @@ img {
   width: 350px;
   height: 380px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .categories {
@@ -41,4 +42,5 @@ p {
   color: #232321;
   text-transform: uppercase;
   width: 200px;
+  cursor: pointer;
 }

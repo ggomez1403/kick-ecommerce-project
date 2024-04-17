@@ -8,7 +8,7 @@
 
 .hero {
   background: url("https://i.imgur.com/Ab8Ffbw.png") no-repeat center/cover;
-  height: 85vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -19,8 +19,8 @@
 }
 
 .hero p {
-  width: 900px;
-  font-size: 1.6rem;
+  width: 1200px;
+  font-size: 2rem;
 }
 
 h1,

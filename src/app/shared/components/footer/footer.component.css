@@ -130,3 +130,7 @@ h3 {
 .danger {
   width: 300px;
 }
+
+.info a {
+  color: #fafafa;
+}

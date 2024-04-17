@@ -1,20 +1,12 @@
 <section class="listing-container">
   <article class="banner">
-    <h1>Step into Style: Explore Our Latest Shoe Collection!</h1>
+    <h1>New Drops</h1>
     <p>
-      Welcome to Kicks, where every step is a statement, step into our world of
-      footwear and find your perfect pair today!
+      Fresh Kicks Alert! Discover our latest shoe arrivals. Step into style with
+      our newest drops – from trendy sneakers to chic boots, we've got your shoe
+      game covered.
     </p>
   </article>
-  <ul class="categories-menu">
-    <li (click)="getAllShoes()">All</li>
-    <li
-      *ngFor="let category of categories"
-      (click)="selectCategory(category.id)"
-    >
-      {{ category.name }}
-    </li>
-  </ul>
   <article class="products-list">
     <section class="single-product" *ngFor="let product of shoes">
       <img
