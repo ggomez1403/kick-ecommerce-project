@@ -7,8 +7,8 @@
 }
 
 .hero {
-  background: url("https://i.imgur.com/Ab8Ffbw.png") no-repeat center/cover;
-  height: 85vh;
+  background: url("https://i.imgur.com/NfjyTRd.png") no-repeat center/cover;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   gap: 4rem;

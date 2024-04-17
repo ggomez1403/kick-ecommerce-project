@@ -1,31 +1,47 @@
-<section class="product-page-container">
+<section class="product-page-container" *ngIf="singleShoe">
   <section class="gallery">
-    <img src="https://i.imgur.com/E8wqwJR.png" class="img-1" alt="gallery 1" />
-    <img src="https://i.imgur.com/y01I6mK.png" class="img-2" alt="gallery 2" />
-    <img src="https://i.imgur.com/KlGfwoz.png" class="img-3" alt="gallery 3" />
-    <img src="https://i.imgur.com/kHzlVjx.png" class="img-4" alt="gallery 4" />
+    <img
+      src="{{ singleShoe.images[0] }}"
+      class="img-1"
+      alt="{{ singleShoe.name }} gallery 1"
+    />
+    <img
+      src="{{ singleShoe.images[1] }}"
+      class="img-2"
+      alt="{{ singleShoe.name }} gallery 2"
+    />
+    <img
+      src="{{ singleShoe.images[2] }}"
+      class="img-3"
+      alt="{{ singleShoe.name }} gallery 3"
+    />
+    <img
+      src="{{ singleShoe.images[3] }}"
+      class="img-4"
+      alt="{{ singleShoe.name }} gallery 4"
+    />
   </section>
   <section class="about-container">
     <article class="details">
-      <span class="release">New Release</span>
-      <h1>ADIDAS 4DFWD X PARLEY RUNNING SHOES</h1>
-      <span class="price">$125.00</span>
+      <span class="release" *ngIf="singleShoe.newRelease === 'true'"
+        >New Release</span
+      >
+      <h1>{{ singleShoe.name }}</h1>
+      <span class="price">{{ singleShoe.price | currency : "USD" }}</span>
       <div class="color-selector">
         <label for="colors">Color</label>
         <select name="colors" id="colors">
-          <option value="blanco">Blanco</option>
-          <option value="negro">Negro</option>
-          <option value="verde">Verde</option>
+          <option *ngFor="let color of singleShoe.colors" value="{{ color }}">
+            {{ color }}
+          </option>
         </select>
       </div>
       <div class="size-selector">
         <label for="colors">Size</label>
         <select name="sizes" id="sizes">
-          <option value="37">37</option>
-          <option value="38">38</option>
-          <option value="39">39</option>
-          <option value="40">40</option>
-          <option value="41">41</option>
+          <option *ngFor="let size of singleShoe.sizes" value="{{ size }}">
+            {{ size }}
+          </option>
         </select>
       </div>
       <div class="buttons">
@@ -38,12 +54,7 @@
     <article class="about">
       <h2>About the product</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium
-        dolore delectus quos animi aut aspernatur recusandae non quo
-        consequuntur alias eligendi distinctio veritatis modi harum cum sit
-        facere neque officiis fugit vel itaque, saepe quidem laudantium! Sequi
-        ratione sint dolores, ea sunt quidem consequuntur tempore architecto
-        excepturi nostrum repellat soluta.
+        {{ singleShoe.about }}
       </p>
     </article>
   </section>
