@@ -1,7 +1,7 @@
 <section class="container">
   <img src="https://i.imgur.com/gHiu6KQ.png" alt="register img" />
   <article class="register">
-    <h1>Register</h1>
+    <h1>Register Admin</h1>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <p>Your details</p>
       <input type="text" placeholder="First Name" formControlName="firstName" />
@@ -102,9 +102,6 @@
     </form>
     <p class="account">
       Already have an account? <a routerLink="/auth/login">Log in</a>
-    </p>
-    <p class="account">
-      Or <a routerLink="/admin/register">Register as an Admin</a>
     </p>
   </article>
 </section>
