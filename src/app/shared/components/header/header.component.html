@@ -10,6 +10,7 @@
     <div class="icons">
       <i class="fa-solid fa-cart-shopping" routerLink="/cart"></i>
       <i class="fa-solid fa-user" routerLink="/my-purchases"></i>
+      <i class="fa-solid fa-user-tie" *ngIf="isAdmin()" routerLink="/admin"></i>
       <button
         *ngIf="!isAuthenticated()"
         class="btn login"

@@ -14,6 +14,10 @@ export class HeaderComponent {
     return this.authService.isAuthenticated();
   }
 
+  isAdmin() {
+    return this.authService.isAdmin();
+  }
+
   logout() {
     this.authService.logout();
     this.router.navigate(['/']);
