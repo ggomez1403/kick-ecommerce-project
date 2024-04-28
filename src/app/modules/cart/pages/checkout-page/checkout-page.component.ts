@@ -6,6 +6,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Cart } from '../../../../core/models/Cart.model';
+import { ShoesCart } from '../../../../core/models/ShoesCart.model';
+import { UserJSON } from '../../../../core/models/UserJSON.model';
+import { AuthService } from '../../../auth/services/auth.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout-page',
@@ -13,15 +18,45 @@ import {
   styleUrls: ['./checkout-page.component.css'],
 })
 export class CheckoutPageComponent implements OnInit {
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(
+    private readonly fb: FormBuilder,
+    private cartService: CartService,
+    private authService: AuthService
+  ) {}
 
   public addressForm!: FormGroup;
   public checkoutForm!: FormGroup;
+  public totalPrice!: number;
+  public currentUser!: UserJSON;
+  private cartItemsList!: ShoesCart[];
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.addressForm = this.initAddressForm();
     this.checkoutForm = this.initCheckoutForm();
+    this.getTotalPrice();
+    this.getUserInfo();
+    this.cartItemsList = this.cartService.getCartItems();
+  }
+
+  checkOut() {
+    const cart: Cart = {
+      userId: this.currentUser.id,
+      items: this.cartItemsList,
+      totalPrice: this.totalPrice,
+    };
+
+    this.cartService.saveCart(cart).subscribe((reponse) => {
+      console.log(reponse);
+    });
+  }
+
+  getTotalPrice() {
+    this.totalPrice = this.cartService.getTotalPrice();
+  }
+
+  getUserInfo() {
+    this.currentUser = this.authService.getUser();
   }
 
   initAddressForm(): FormGroup {

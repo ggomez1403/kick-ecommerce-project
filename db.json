@@ -31,7 +31,7 @@
         "https://i.imgur.com/yN9zyMf.jpg",
         "https://i.imgur.com/G55aQxe.jpg"
       ],
-      "price": "120",
+      "price": 120,
       "colors": [
         "Almost Blue / Bright Blue / Almost Yellow",
         "Almost Yellow / Maroon / Wonder White",
@@ -63,7 +63,7 @@
         "https://i.imgur.com/P0aVkz9.jpg",
         "https://i.imgur.com/6m0SAzu.jpg"
       ],
-      "price": "140",
+      "price": 140,
       "colors": [
         "Off White / Vivid Red / Core Black",
         "Arctic Night / Core Black / Acid Orange",
@@ -83,7 +83,7 @@
         "https://i.imgur.com/nYYNf7i.jpg",
         "https://i.imgur.com/n15KyP4.jpg"
       ],
-      "price": "48",
+      "price": 48,
       "colors": [
         "Arctic Night / Cloud White / Wonder Blue",
         "Cloud White / Core Black / Bright Red",
@@ -115,7 +115,7 @@
         "https://i.imgur.com/SQaaQkb.jpg",
         "https://i.imgur.com/4xNSPsR.jpg"
       ],
-      "price": "180",
+      "price": 180,
       "colors": [
         "Sesame / Talc / Real Magenta",
         "Wonder Beige / Core Black / Semi Impact Orange",
@@ -135,7 +135,7 @@
         "https://i.imgur.com/gky5eU5.jpg",
         "https://i.imgur.com/SuRVEte.jpg"
       ],
-      "price": "170",
+      "price": 170,
       "colors": [
         "Core Black / Cloud White / Maroon",
         "Charcoal / Cloud White / Putty Grey",
@@ -174,6 +174,94 @@
     {
       "id": "4",
       "name": "outdoor"
+    }
+  ],
+  "cart": [
+    {
+      "id": "9adf",
+      "userId": "3ffe",
+      "items": [
+        {
+          "id": "1",
+          "name": "Gazelle Shoes",
+          "color": "Almost Blue / Bright Blue / Almost Yellow",
+          "size": "5",
+          "price": 120,
+          "image": "https://i.imgur.com/FKfCYiz.jpg",
+          "quantity": 3
+        },
+        {
+          "id": "4",
+          "name": "Terrex Free Hiker 2.0",
+          "color": "Silver Green / Crystal Jade / Carbon",
+          "size": "10",
+          "price": 180,
+          "image": "https://i.imgur.com/VFZt2nr.jpg",
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 726.99
+    },
+    {
+      "id": "2b0b",
+      "userId": "3ffe",
+      "items": [
+        {
+          "id": "1",
+          "name": "Gazelle Shoes",
+          "color": "Almost Blue / Bright Blue / Almost Yellow",
+          "size": "5",
+          "price": 120,
+          "image": "https://i.imgur.com/FKfCYiz.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "1",
+          "name": "Gazelle Shoes",
+          "color": "Almost Blue / Bright Blue / Almost Yellow",
+          "size": "6.5",
+          "price": 120,
+          "image": "https://i.imgur.com/FKfCYiz.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "1",
+          "name": "Gazelle Shoes",
+          "color": "Ivory / Cloud White / Bold Gold",
+          "size": "6.5",
+          "price": 120,
+          "image": "https://i.imgur.com/FKfCYiz.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "1",
+          "name": "Gazelle Shoes",
+          "color": "Ivory / Cloud White / Bold Gold",
+          "size": "8",
+          "price": 120,
+          "image": "https://i.imgur.com/FKfCYiz.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Trae young 3 basketball shoes",
+          "color": "Arctic Night / Core Black / Acid Orange",
+          "size": "8.5",
+          "price": 140,
+          "image": "https://i.imgur.com/xFryZAl.jpg",
+          "quantity": 3
+        },
+        {
+          "id": "2",
+          "name": "Trae young 3 basketball shoes",
+          "color": "Wonder Beige / Grey Five / Wonder White",
+          "size": "7.5",
+          "price": 140,
+          "image": "https://i.imgur.com/xFryZAl.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 1286.99
     }
   ]
 }

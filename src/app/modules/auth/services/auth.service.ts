@@ -5,6 +5,8 @@ import * as CryptoJS from 'crypto-js';
 import { BehaviorSubject, EMPTY, Observable, map, switchMap, tap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { User } from '../../../core/models/User.model';
+import { UserJSON } from '../../../core/models/UserJSON.model';
+import { UserCartService } from '../../cart/services/user-cart.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +17,11 @@ export class AuthService {
 
   private errorLoginSubject = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userCartService: UserCartService
+  ) {}
 
   get errorLogin$(): Observable<boolean> {
     return this.errorLoginSubject.asObservable();
@@ -37,6 +43,8 @@ export class AuthService {
         ).toString(CryptoJS.enc.Utf8);
         if (decryptedPassword === password) {
           localStorage.setItem(this.SESSION_KEY, JSON.stringify(user));
+          const cartItems = this.userCartService.getCartItemsForCurrentUser();
+          this.userCartService.saveCartForUser(cartItems);
           this.router.navigate(['/']);
         } else {
           this.errorLoginSubject.next(true);
@@ -72,6 +80,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.SESSION_KEY);
+    this.userCartService.clearCartForCurrentUser();
   }
 
   isAuthenticated(): boolean {
@@ -94,5 +103,10 @@ export class AuthService {
 
   resetErrorSession(): void {
     this.errorLoginSubject.next(false);
+  }
+
+  getUser(): UserJSON {
+    const userString = localStorage.getItem(this.SESSION_KEY);
+    return userString ? JSON.parse(userString) : null;
   }
 }

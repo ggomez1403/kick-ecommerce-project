@@ -1,4 +1,10 @@
-<section class="container">
+<ng-template #noCartItems>
+  <section class="template">
+    <h1>You don't have any items in the cart</h1>
+  </section>
+</ng-template>
+
+<section class="container" *ngIf="totalPrice > 1; else noCartItems">
   <h1>Checkout</h1>
   <section class="checkout">
     <article class="checkout-details">
@@ -7,10 +13,10 @@
         <div class="divider"></div>
         <div class="contact-details">
           <ul>
-            <li><span>First Name: </span>Geraldine</li>
-            <li><span>Last Name: </span>Gomez</li>
-            <li><span>Email Address: </span>Email</li>
-            <li><span>Phone Number: </span>3193108099</li>
+            <li><span>First Name: </span>{{ currentUser.firstName }}</li>
+            <li><span>Last Name: </span>{{ currentUser.lastName }}</li>
+            <li><span>Email Address: </span>{{ currentUser.email }}</li>
+            <li><span>Phone Number: </span>{{ currentUser.phoneNumber }}</li>
           </ul>
         </div>
       </section>
@@ -72,7 +78,7 @@
         <div class="divider"></div>
         <article class="delivery-option">
           <p class="delivery">
-            Standard Delivery: <span class="price">$6.00</span>
+            Standard Delivery: <span class="price">$6.99</span>
           </p>
         </article>
         <p>
@@ -223,6 +229,7 @@
         type="button"
         class="btn"
         [disabled]="!checkoutForm.valid || !addressForm.valid"
+        (click)="checkOut()"
       >
         Review and pay
       </button>
@@ -232,7 +239,7 @@
       <section class="summary">
         <div class="row">
           <p>Order</p>
-          <p>$130.00</p>
+          <p>{{ totalPrice - 6.99 | currency : "USD" }}</p>
         </div>
         <div class="row">
           <p>Delivery</p>
@@ -245,7 +252,7 @@
         <div class="divider"></div>
         <div class="row bold">
           <p>Total</p>
-          <p>$136.99</p>
+          <p>{{ totalPrice | currency : "USD" }}</p>
         </div>
       </section>
     </article>

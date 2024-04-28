@@ -1,51 +1,36 @@
-<section class="container">
+<ng-template #noCartItems>
+  <section class="template">
+    <h1>You don't have any items in the cart</h1>
+  </section>
+</ng-template>
+
+<section class="container" *ngIf="cartItems.length > 0; else noCartItems">
   <h1>Cart</h1>
   <div class="cart-container">
     <article class="cart">
-      <section class="product">
-        <img src="https://i.imgur.com/lAAlKkD.png" alt="name" />
+      <section class="product" *ngFor="let item of cartItems; let i = index">
+        <img src="{{ item.image }}" alt="{{ item.name }}" />
         <div class="product-info">
-          <h3>DROPSET TRAINER SHOES</h3>
-          <p><span>Color: </span>White</p>
-          <p><span>Size: </span>38</p>
-          <p class="delete">Delete</p>
+          <h3>{{ item.name }}</h3>
+          <p><span>Color: </span>{{ item.color }}</p>
+          <p><span>Size: </span>{{ item.size }}</p>
+          <p class="delete" (click)="deleteCartItem(item)">Delete</p>
         </div>
-        <form class="product-quantity">
-          <button type="button" class="btn">-</button>
-          <input type="number" [defaultValue]="1" />
-          <button type="button" class="btn">+</button>
-        </form>
-        <p class="price">$130.00</p>
-      </section>
-      <section class="product">
-        <img src="https://i.imgur.com/lAAlKkD.png" alt="name" />
-        <div class="product-info">
-          <h3>DROPSET TRAINER SHOES</h3>
-          <p><span>Color: </span>White</p>
-          <p><span>Size: </span>38</p>
-          <p class="delete">Delete</p>
+        <div class="product-quantity">
+          <p>Quantity</p>
+          <div class="quantity-container">
+            <button type="button" class="btn" (click)="decreaseQuantity(item)">
+              -
+            </button>
+            <span>{{ item.quantity }}</span>
+            <button type="button" class="btn" (click)="increaseQuantity(item)">
+              +
+            </button>
+          </div>
         </div>
-        <form class="product-quantity">
-          <button type="button" class="btn">-</button>
-          <input type="number" [defaultValue]="1" />
-          <button type="button" class="btn">+</button>
-        </form>
-        <p class="price">$130.00</p>
-      </section>
-      <section class="product">
-        <img src="https://i.imgur.com/lAAlKkD.png" alt="name" />
-        <div class="product-info">
-          <h3>DROPSET TRAINER SHOES</h3>
-          <p><span>Color: </span>White</p>
-          <p><span>Size: </span>38</p>
-          <p class="delete">Delete</p>
-        </div>
-        <form class="product-quantity">
-          <button type="button" class="btn">-</button>
-          <input type="number" [defaultValue]="1" />
-          <button type="button" class="btn">+</button>
-        </form>
-        <p class="price">$130.00</p>
+        <p class="price">
+          {{ item.price * item.quantity | currency : "USD" }}
+        </p>
       </section>
     </article>
     <article class="summary-container">
@@ -53,7 +38,7 @@
       <section class="summary">
         <div class="row">
           <p>Order</p>
-          <p>$130.00</p>
+          <p>{{ totalPrice | currency : "USD" }}</p>
         </div>
         <div class="row">
           <p>Delivery</p>
@@ -66,7 +51,7 @@
         <div class="divider"></div>
         <div class="row bold">
           <p>Total</p>
-          <p>$136.99</p>
+          <p>{{ totalPrice + 6.99 | currency : "USD" }}</p>
         </div>
         <button type="button" class="btn" routerLink="/cart/checkout">
           Checkout

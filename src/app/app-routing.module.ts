@@ -35,6 +35,14 @@ const routes: Routes = [
       import('./modules/contact/contact.module').then((m) => m.ContactModule),
   },
   {
+    path: 'my-purchases',
+    loadChildren: () =>
+      import('./modules/my-purchases/my-purchases.module').then(
+        (m) => m.MyPurchasesModule
+      ),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '**',
     redirectTo: '/',
   },
