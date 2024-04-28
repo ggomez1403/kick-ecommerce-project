@@ -1,9 +1,13 @@
-.container {
+.container,
+.template {
+  background-color: #e7e7e3;
   display: flex;
+}
+
+.container {
   flex-direction: column;
   gap: 2rem;
   padding: 2rem 0 4rem;
-  background-color: #e7e7e3;
 }
 
 h1 {

@@ -30,7 +30,7 @@
       <span class="price">{{ singleShoe.price | currency : "USD" }}</span>
       <div class="color-selector">
         <label for="colors">Color</label>
-        <select name="colors" id="colors">
+        <select name="colors" id="colors" [(ngModel)]="selectedColor">
           <option *ngFor="let color of singleShoe.colors" value="{{ color }}">
             {{ color }}
           </option>
@@ -38,15 +38,29 @@
       </div>
       <div class="size-selector">
         <label for="colors">Size</label>
-        <select name="sizes" id="sizes">
+        <select name="sizes" id="sizes" [(ngModel)]="selectedSize">
           <option *ngFor="let size of singleShoe.sizes" value="{{ size }}">
             {{ size }}
           </option>
         </select>
       </div>
       <div class="buttons">
-        <button type="button" class="btn add-cart">Add to cart</button>
-        <button type="button" class="btn buy-now" routerLink="/cart">
+        <button
+          type="button"
+          class="btn add-cart"
+          (click)="addToCart(singleShoe)"
+        >
+          Add to cart
+        </button>
+        <div class="danger" *ngIf="showAddedToCartMessage">
+          {{ singleShoe.name }} has been added to the cart
+        </div>
+        <button
+          type="button"
+          class="btn buy-now"
+          routerLink="/cart"
+          (click)="addToCart(singleShoe)"
+        >
           Buy it now
         </button>
       </div>

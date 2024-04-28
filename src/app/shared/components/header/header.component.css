@@ -29,6 +29,7 @@ ul {
 
 .fa-solid {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .btn {

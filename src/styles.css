@@ -45,3 +45,9 @@ a {
 .btn:disabled {
   cursor: not-allowed;
 }
+
+.template {
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 120px);
+}

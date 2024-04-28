@@ -4,7 +4,7 @@ export interface Shoes {
   about: string[];
   newRelease: string;
   images: string[];
-  price: string;
+  price: number;
   colors: string[];
   sizes: string[];
 }

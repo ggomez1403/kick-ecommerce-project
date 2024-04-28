@@ -126,3 +126,8 @@ img {
 .img-4 {
   border-bottom-right-radius: 3rem;
 }
+
+.danger {
+  background-color: #a0ffab;
+  color: #326337;
+}

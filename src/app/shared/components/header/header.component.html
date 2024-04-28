@@ -8,8 +8,8 @@
     </ul>
     <img src="https://i.imgur.com/iat3X4i.png" alt="logo" routerLink="/" />
     <div class="icons">
-      <i class="fa-solid fa-cart-shopping"></i>
-      <i class="fa-solid fa-user"></i>
+      <i class="fa-solid fa-cart-shopping" routerLink="/cart"></i>
+      <i class="fa-solid fa-user" routerLink="/my-purchases"></i>
       <button
         *ngIf="!isAuthenticated()"
         class="btn login"
