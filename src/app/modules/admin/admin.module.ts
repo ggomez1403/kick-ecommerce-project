@@ -12,6 +12,7 @@ import { ManageProductsComponent } from './components/manage-products/manage-pro
 import { ManagePurchasesComponent } from './components/manage-purchases/manage-purchases.component';
 import { ManageUsersComponent } from './components/manage-users/manage-users.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
     ManageUsersComponent,
     ManageProductsComponent,
     ManagePurchasesComponent,
+    RegisterAdminComponent,
   ],
   imports: [
     CommonModule,
